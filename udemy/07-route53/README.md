@@ -1,0 +1,79 @@
+### Route 53
+
+- Route 53 = Managed and Authoritative DNS Services
+- Authoritative  = customer can update DNS records 
+- Route record 
+  - Domain / Sub domaine names 
+  - Record type : A, AAAA, etc. 
+    - CNAME hostname -> hostname (cannot be created for Top zone - like example.com)
+      - Only non root domains (example.com est un root domain)
+    - NS Name server for the Hosted Zone 
+    - Alias hostname -> IP or AWS Resource 
+      - A hostname -> IPv4 (or aws resource behind it)
+      - AAAA hostname -> IPv6  (or aws resource behind it)
+      - Works even for root domains
+      - Free of charge 
+      - Native health check
+  - Value : IP 
+  - Routing Policy 
+  - TTL (mandatory for each record exception for Alias ones)
+- Private vs Public Hosted Zone (billed monthly)
+- Private Hosted Zone = route traffic within one of more VPCs
+  - Internal names -> VPC resources 
+- Registering domain then create records 
+- Alias record targets :
+  - ELB
+  - CloudFront Distributions 
+  - API Gateway 
+  - Elastic Beanstalk env
+  - S3 Websites (not buckets)
+  - VPC Interface Points 
+  - Global Accelerator accelerator 
+  - Route 53 record in the same hosted zone 
+- /!\ Cannot set Alias to an EC2 DNS name
+- /!\ record can be multi-valued (value chosen randomly from client)
+- Domain Registrar = domain seller != DNS Service 
+#### Routing Policy
+
+- Simple
+- Weighted (same name and type but different record ID)
+  - weight = number between 0 and 255
+  - record id
+- Latency based  (same name and type but different record ID)
+  - On ID by region (latency type)
+  - Traffic between users and AWS Regisons 
+- Failover  (same name and type but different record ID)
+  - If Health check unhealthy -> route to secondary 
+- Geolocation 
+  - Based on user location 
+  - Should have default 
+- Geoproximity 
+  - Based on user / resources proximity 
+  - Geo region size = bias attribute (value from 1 to 99 et from -1 to -99)
+  - AWS Resources will use Region 
+  - Non AWS Resources => have to specify Latitude and Longitude
+  - Must activate Route 53 Traffic flow 
+- IP Based 
+  - Based on user IP (CIDRs)
+- Multi Value 
+  - Routing to multiple resources (client side load balancing)
+  - Can be associated with health checks 
+  - Up to 8 healthy records are returned
+#### Health checks 
+
+- Only for public resources 
+- Types
+  - Endpoint 
+    - 2xx or 3xx responses
+    - can look to 5120 bytes of response
+  - Calculated - combines Health checks 
+    - AND, OR, NOT
+    - Monitor up to 256 child HC
+    - Can specify how many HC need to pass to consider parent HC OK
+    - Usage : maintenance without failing all Health checks 
+  - CloudWatch Alarms
+- Health checks are integrated with CW
+- About 15 global checkers 
+  - Threshold : 3 by default 
+  - if > 18% of checkers are OK then healthy 
+  - 30 sec (can be set to 10 sec at higher cost)
