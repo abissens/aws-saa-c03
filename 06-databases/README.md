@@ -1,5 +1,6 @@
-### RDS - Relational DB Services
+## Databases
 
+### RDS - Relational DB Services
 
 - Types : Postgres, MySQL, MariaDB, Oracle, SQL Server, IBM DB2 and Aurora (AWS Proprietary DB)
 - RDS is Managed :

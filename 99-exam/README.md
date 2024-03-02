@@ -3,6 +3,7 @@
 #### Pass mark 
 - 65 questions in 130 minutes 
 - Minimum 720/1000 
+
 #### Response types
 
 - Scenario based 

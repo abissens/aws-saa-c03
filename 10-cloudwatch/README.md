@@ -1,4 +1,4 @@
-### CLoudwatch 
+### Cloudwatch 
 
 - Managed Monitoring service in AWS 
 - System metrics (got out of the box - the more services are used, the more metrics there are)

@@ -1,8 +1,9 @@
-### The 3 W's of scaling 
+### Scaling 
 
-- What ? EC2, DB, etc ? 
-- Where ? how many AZ, what Load Balancers, scale DB or Web ?
-- When ? Most of the time Cloudwatch alarms
+- The 3 W's of scaling
+  - What ? EC2, DB, etc ? 
+  - Where ? how many AZ, what Load Balancers, scale DB or Web ?
+  - When ? Most of the time Cloudwatch alarms
 
 ### Launch template 
 - Launch template

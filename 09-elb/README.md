@@ -1,6 +1,5 @@
 ### ELB - Elastic Load Balancer
 
-
 - Managed Load balancer
 - Health checks : port and route
 - 4 Kinds

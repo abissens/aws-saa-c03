@@ -1,4 +1,4 @@
-### Instance Storage
+### Instance Storage (EBS, EFS)
 
 
 #### EBS : Elastic Block Store
