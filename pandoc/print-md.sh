@@ -35,6 +35,7 @@ for dir in "$input_dir"/[0-9][0-9]-*; do
                        --variable margin-top="0in" \
                        --variable margin-bottom="0in" \
                        --metadata title="$title" \
+                       --from markdown+rebase_relative_paths \
                        -o "$current_output_dir/${filename_no_ext}.pdf"
             fi
         done
