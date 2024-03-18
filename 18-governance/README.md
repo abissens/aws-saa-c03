@@ -194,7 +194,7 @@
   - Event type category 
   - Event status : open, closed or upcoming 
   - Affected entity 
-- Examples : EC2 system rebout maintenance scheduled, EC2 Operational issue, Billing suspension notice, etc. 
+- Examples : EC2 system reboot maintenance scheduled, EC2 Operational issue, Billing suspension notice, etc. 
 
 #### AWS Service Catalog and AWS Proton
 
